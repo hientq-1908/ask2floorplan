@@ -1,0 +1,7 @@
+# Root config. Selects one option from each group.
+defaults:
+  - data: rplan
+  - representation: corners
+  - model: transformer
+  - diffusion: ddpm
+  - _self_

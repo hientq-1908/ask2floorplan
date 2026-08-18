@@ -1,0 +1,23 @@
+name: contract
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: contract } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync
+      # exit 5 = no tests collected. Drop the guard once F0 lands.
+      - run: uv run pytest || [ $? -eq 5 ]
+
+      - name: JSON Schema is not stale
+        run: |
+          uv run python -m a2fp_contract.export_schema
+          git diff --exit-code src/a2fp_contract/json_schema/
+
+      - name: Contract stays pydantic-only
+        run: |
+          if uv pip list | grep -Eiq "torch|anthropic|openai|shapely"; then
+            echo "FAIL: contract grew a heavy dependency"; exit 1
+          fi

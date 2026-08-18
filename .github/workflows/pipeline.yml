@@ -1,0 +1,12 @@
+name: pipeline
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: pipeline } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync
+      # exit 5 = no tests collected. Drop the guard once F0 lands.
+      - run: uv run pytest || [ $? -eq 5 ]

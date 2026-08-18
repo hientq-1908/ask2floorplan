@@ -1,0 +1,3 @@
+# Human-written held-out queries. ~60 examples.
+# NEVER regenerate these with a model: they are the only eval signal not
+# produced by the same model family as the training data.

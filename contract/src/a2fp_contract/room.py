@@ -1,0 +1,1 @@
+"""RoomType vocabulary, RoomNode, and GeometryHints. Node id is what edges reference and what keeps two bedrooms distinct in the model's room-index embedding. Hints are soft and IGNORED by Module 2 in v0."""

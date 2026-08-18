@@ -1,0 +1,1 @@
+"""Export JSON Schema for FloorGraph and FloorPlan. CI re-runs this and fails on any diff, so the committed schema cannot lag the models. The agent's constrained decoding reads these files directly."""

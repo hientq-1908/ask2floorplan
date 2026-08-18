@@ -1,0 +1,1 @@
+"""FloorGraph — the contract between Module 1 and Module 2. Module 2 cannot tell whether one came from the agent or straight out of the dataprep artifact; that symmetry is what makes the two projects independently evaluable."""

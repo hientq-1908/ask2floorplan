@@ -1,0 +1,6 @@
+# Training config. Selects base model, role, and datagen recipe.
+defaults:
+  - base_model: qwen3_8b
+  - role: graph_drafter
+  - datagen: distill
+  - _self_

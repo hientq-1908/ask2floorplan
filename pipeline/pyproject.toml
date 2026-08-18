@@ -1,0 +1,24 @@
+[project]
+name = "a2fp-pipeline"
+version = "0.1.0"
+description = "Thin integration: chains module 1 -> module 2. Depends on both; nothing depends on it."
+requires-python = ">=3.12"
+dependencies = ["a2fp-contract", "a2fp-agent", "a2fp-diffusion", "typer"]
+
+[project.scripts]
+a2fp = "a2fp_pipeline.cli:app"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.uv.sources]
+a2fp-contract = { path = "../contract", editable = true }
+a2fp-agent = { path = "../agent", editable = true }
+a2fp-diffusion = { path = "../diffusion", editable = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/a2fp_pipeline"]

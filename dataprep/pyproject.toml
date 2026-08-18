@@ -1,0 +1,19 @@
+[project]
+name = "a2fp-dataprep"
+version = "0.1.0"
+description = "RPLAN -> versioned FloorGraph/FloorPlan artifacts. Run rarely, read often."
+requires-python = ">=3.12"
+dependencies = ["a2fp-contract", "numpy", "shapely", "pillow"]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.uv.sources]
+a2fp-contract = { path = "../contract", editable = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/a2fp_dataprep"]

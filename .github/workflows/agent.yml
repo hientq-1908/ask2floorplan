@@ -1,0 +1,20 @@
+name: agent
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: agent } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync
+      # exit 5 = no tests collected. Drop the guard once F0 lands.
+      - run: uv run pytest || [ $? -eq 5 ]
+
+      # The layering rule. If this fails, a dependency edge was added backwards.
+      - name: Runtime install must not pull torch
+        run: |
+          if uv run python -c "import torch" 2>/dev/null; then
+            echo "FAIL: agent runtime pulled torch. Training deps belong behind --extra train."
+            exit 1
+          fi

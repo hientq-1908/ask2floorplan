@@ -1,0 +1,4 @@
+# Runtime config. Selects the role sequencing.
+defaults:
+  - workflow: full
+  - _self_

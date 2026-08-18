@@ -1,0 +1,36 @@
+# environments
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# raw data — never committed
+data/raw/*
+!data/raw/rplan/
+data/raw/rplan/*
+!data/raw/rplan/.gitkeep
+
+# artifact payloads — manifests and splits ARE committed, contents are not
+datasets/*/*/graphs/
+datasets/*/*/plans/
+
+# training outputs
+runs/*
+!runs/.gitkeep
+wandb/
+*.pt
+*.safetensors
+*.ckpt
+
+# generated training data
+agent/lora_finetuning/data/*
+!agent/lora_finetuning/data/README.md
+
+# local config
+.env
+.env.local
+
+# notebooks
+.ipynb_checkpoints/

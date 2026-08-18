@@ -1,0 +1,1 @@
+"""Turn, Trajectory, RoleTag. The unit of Module 1's training data and its eval replay. hidden_spec is set only for synthetic rollouts and is the accept/reject signal that makes distilled data filterable."""

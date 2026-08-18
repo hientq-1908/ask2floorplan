@@ -1,0 +1,1 @@
+"""Structural and semantic validation of a FloorGraph. TODO(F0): connectivity (every room reachable), legality (bathroom must not open onto the kitchen), plausibility bounds. Return a list of issues rather than raising — the repair loop needs the full set in one pass. Rules must mirror dataprep/graph_extraction.py."""
