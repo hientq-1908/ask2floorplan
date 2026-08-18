@@ -1,4 +1,4 @@
-# ask2floorplant
+# ask2floorplan
 
 Natural-language query → floor graph → vector floorplan.
 

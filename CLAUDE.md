@@ -1,4 +1,4 @@
-# ask2floorplant — project context
+# ask2floorplan — project context
 
 Natural-language query → floor graph → vector floorplan. Read `README.md` first, then the module READMEs.
 

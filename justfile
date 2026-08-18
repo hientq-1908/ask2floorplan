@@ -1,4 +1,4 @@
-# ask2floorplant — per-project targets.
+# ask2floorplan — per-project targets.
 # Each project has its own venv and lockfile; there is no workspace.
 
 # --- setup ---------------------------------------------------------------
